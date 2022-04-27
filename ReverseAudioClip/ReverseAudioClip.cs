@@ -26,7 +26,8 @@ namespace ReverseAudioClip
             public static void Postfix(StaticAudioClip __instance, UIBuilder ui)
             {
                 var buttoin = ui.Button("Reverse");
-                buttoin.Slot.ActiveSelf_Field.OverrideForUser(buttoin.LocalUser, true);
+                buttoin.Slot.ActiveSelf_Field.OverrideForUser(buttoin.LocalUser, true).Default.Value = false;
+                
                 buttoin.LocalPressed += (btn, evnt) =>
                 {
                     Process(__instance, delegate (AudioX a)
